@@ -140,6 +140,7 @@ function applyfilter_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global photo
 global sigma
+global BW1
 %% crear img binaria
     img = rgb2gray(photo);
     img = imgaussfilt(img,sigma);
