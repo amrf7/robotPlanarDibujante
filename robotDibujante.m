@@ -1,4 +1,12 @@
 function varargout = robotDibujante(varargin)
+
+% Para usar esta aplicación se necesitan los siguientes toolbox:
+% — Image Acquisition Toolbox Support Package for OS Generic Video Interface
+% — Image Acquisition Toolbox Supoort Package for DCAM Hardware
+% — Image Processing Toolbox
+% — Image Acquisition Toolbox
+% — MATLAB Support Package for USB Webcams
+% 
 % ROBOTDIBUJANTE MATLAB code for robotDibujante.fig
 %      ROBOTDIBUJANTE, by itself, creates a new ROBOTDIBUJANTE or raises the existing
 %      singleton*.
