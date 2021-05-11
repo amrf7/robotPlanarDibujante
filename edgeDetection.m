@@ -13,13 +13,13 @@ function [x, y] = edgeDetection(RGB, sigma)
     A4x = 297;
     A4y = 210;
     scale = 1;
-    while((imgSize(1) > 0.8*A4y) || (imgSize(2) > 0.8*A4x)) 
+    while((imgSize(1) > 0.8*A4y) || (imgSize(2) > (0.8*A4x - 60))) 
         % Escala la imagen hasta que esta entre en la página A4
         scale = scale + 0.5;
         imgSize = size(BW1) / scale;
     end
 
     % Volteamos y escalamos la imagen para que se coloque en la posición correcta
-    y = 200 + (-1 * y / scale); 
+    y = 200 + (-1 * y / scale);
     x = 60 +(x / scale);
 end

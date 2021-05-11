@@ -200,7 +200,6 @@ function Browse_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global photo
 global ready
-
 [a b]=uigetfile({'*.jpeg';'*.jpg'});    
 photo=imread([b a]);
 imshow(photo,'Parent',handles.axes1);
@@ -213,6 +212,13 @@ function Clear_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 global ready
+global ini
+global vid
+if(ini)
+    stop(vid);
+    delete(vid);
+    ini = 0;
+end
 ready = 0;
 cla(handles.axes1,'reset');
 
