@@ -19,7 +19,8 @@ function Animation_ik_TB(photo, sigma)
     [xm,ym] = edgeDetection(photo, sigma);
     %% Creacion de los vectores y de la figura
     L = length(xm);
-    f1 = figure('name','Drawing');
+    f2 = figure('name','Drawing');
+    clf(f2)
     P = [0 297 297 0; 0 0 210 210; 0 0 0 0];
 
     %% Cinematica inversa
@@ -58,6 +59,7 @@ function Animation_ik_TB(photo, sigma)
         %Para el diseño de nuestro robot, el eje del TCP es el mismo que el S2
         hold all     %Reten las figuras
         q = [th1,th2,th3];
+        figure(f2)
         scatter(x3,y3,3,'filled','k') %Ploteo del trazo del lapiz (linea negra) punto por punto
         R1.plot(q,'top','jointdiam',1,'jointcolor','k','linkcolor','g')
         axis square %Ejes iguales y figura en cuadrado

@@ -13,6 +13,7 @@ function Animation_ik(photo, sigma)
     %% Creacion de los vectores y de la figura
     L = length(xm);
     f1 = figure('name','Drawing');
+    clf(f1);
     P = [0 297 297 0; 0 0 210 210; 0 0 0 0];
 
     %% Cinematica inversa
@@ -58,7 +59,8 @@ function Animation_ik(photo, sigma)
         S1 = SE2(x2(i+1),y2(i+1),phi);      %Eje de referencia al final del eslabon 2
         S2 = SE2(x3(i+1),y3(i+1),phi);      %Eje de referencia al final del eslabon 3
         %Para el diseño de nuestro robot, el eje del TCP es el mismo que el S2
-        clf(f1)     %Limpiar la figura
+        cla(f1)     %Limpiar la figura
+        %figure(f1)
         plot_poly(P, 'LineWidth', 1, 'fillcolor', 'w', 'alpha', 1); %Ploteo de la hoja
         hold on     %Reten las figuras
         %trplot(S0, 'frame', 'S0', 'color', 'k', 'thick',1) %Ploteo del eje de referencia S0

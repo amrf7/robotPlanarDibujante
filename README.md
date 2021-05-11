@@ -29,7 +29,7 @@ La interfaz generada en MATLAB se compone de los siguientes elementos:
     * _Animation_ik_ nos permite observar la animación del robot en una figura 2D de MATLAB. Esta animación utiliza elementos _SE2_ del toolbox de Peter Corke. 
     * _Animation_ik_TB_ nos permite observar la animación del robot generada por un objeto _Robot_ del toolbox de Peter Corke. Mientras el robot se encuentre dibujando, sólo es posible tener una vista superior; al finalizar el dibujo es posible rotar la figura para observar el robot en 3D. 
 
-<div align="center" style="margin: 10% 0">
+<div align="center">
 <img src="./resources/gui.png" alt="GUI" width = 75%>
 <p align="center"><em> Captura de pantalla de la interfaz </em></p>
 </div>
