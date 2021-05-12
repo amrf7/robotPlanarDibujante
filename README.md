@@ -34,5 +34,8 @@ La interfaz generada en MATLAB se compone de los siguientes elementos:
 <p align="center"><em> Captura de pantalla de la interfaz </em></p>
 </div>
 
+# Funcionamiento
+Pueden encontrarse videos del funcionamiento de esta aplicación para distintos casos en el siguiente [link](https://youtu.be/5BYJgvd3Z4k).
+
 # Autoría
 Este proyecto fue creado por el Equipo 1, IDs: 158885, 159928, 160228, 160519.
