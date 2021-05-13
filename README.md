@@ -35,7 +35,44 @@ La interfaz generada en MATLAB se compone de los siguientes elementos:
 </div>
 
 # Funcionamiento
+# Pruebas
 Pueden encontrarse videos del funcionamiento de esta aplicación para distintos casos en el siguiente [link](https://youtu.be/5BYJgvd3Z4k).
 
+A continuación mostramos un ejemplo del resultado de una imagen en 3D.
+<div align="center">
+<img src="./resources/barco_imagen.png" alt="imagen_barco" width = 75%>
+<p align="center"><em> Introducción de la imagen a la aplicación. </em></p>
+</div>
+<div align="center">
+<img src="./resources/barco_sigma1.png" alt="imagen_barco_sigma_alto" width=30%>
+<img src="./resources/barco_sigma2.png" alt="imagen_barco_sigma_medio" width=30%>
+<img src="./resources/barco_sigma3.png" alt="imagen_barco_sigma_alto" width=30%>
+<p align="center"><em> Procesamiento de la imagen para tres valores distintos de sigma. </em></p>
+</div>
+<div align="center">
+<img src="./resources/barco.jpeg" alt="imagen_barco" width = 75%>
+<p align="center"><em> Resultado de la imagen dibujada con la simulación planar. </em></p>
+</div>
+
+Por otro lado, también es posible imprimir imágenes como logotipos o documentos escaneados, como se muestra a continuación.
+<div style="display: flex" align="center">
+<div align="center">
+<img src="./resources/UDLAP_imagen.png" alt="imagen_barco" width = 75%>
+<p align="center"><em> Introducción del logotipo a la aplicación. </em></p>
+</div>
+<div align="center">
+<img src="./resources/UDLAP_sigma.png" alt="UDLAP_sigma" width=75%>
+<p align="center"><em> Procesamiento del logotipo. </em></p>
+</div>
+</div>
+<div align="center">
+<img src="./resources/UDLAP.png" alt="UDLAP" width = 75%>
+<p align="center"><em> Resultado de la imagen dibujada con la simulación con robot del toolbox. </em></p>
+</div>
+
 # Autoría
-Este proyecto fue creado por el Equipo 1, IDs: 158885, 159928, 160228, 160519.
+Este proyecto fue creado por el Equipo 1 de la materia de Robótica en el periodo Pimavera 2021. El equipo está conformado por:
+- María Fernanda López Salinas, Ingeniería Mecatrónica.
+- Zuriel Enrique González López, Ingeniería Mecatrónica.
+- Adrián Ramos Macías, Ingeniería Mecatrónica.
+- Ana María Ruiz Fernández, Ingeniería Mecatrónica.
