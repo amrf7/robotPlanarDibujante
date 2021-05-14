@@ -57,11 +57,11 @@ A continuación mostramos un ejemplo del resultado de una imagen en 3D.
 Por otro lado, también es posible imprimir imágenes como logotipos o documentos escaneados, como se muestra a continuación.
 <div style="display: flex" align="center">
 <div align="center">
-<img src="./resources/UDLAP_imagen.png" alt="imagen_barco" width = 75%>
+<img src="./resources/UDLAP_imagen.png" alt="imagen_barco" width = 50%>
 <p align="center"><em> Introducción del logotipo a la aplicación. </em></p>
 </div>
 <div align="center">
-<img src="./resources/UDLAP_sigma.png" alt="UDLAP_sigma" width=75%>
+<img src="./resources/UDLAP_sigma.png" alt="UDLAP_sigma" width=50%>
 <p align="center"><em> Procesamiento del logotipo. </em></p>
 </div>
 </div>
@@ -69,6 +69,37 @@ Por otro lado, también es posible imprimir imágenes como logotipos o documento
 <img src="./resources/UDLAP.png" alt="UDLAP" width = 75%>
 <p align="center"><em> Resultado de la imagen dibujada con la simulación con robot del toolbox. </em></p>
 </div>
+
+# Trabajo futuro
+## Diseño Mecánico
+El diseño mecánico del robot propuesto se muestra en la figura a continuación, en donde se indican las posiciones de los motores, así como la implementación de ruedas locas. Estos elementos brindarán soporte a los eslabones y al mismo tiempo permitirán que se puedan mover de manera correcta al momento en que se gira cada uno de ellos. 
+<div align="center">
+<img src="./resources/diseñoMecanico.png" alt="Diseño del robot planar" width = 50%>
+<p align="center"><em> Propuesta de diseño para el robot planar simulado. </em></p>
+</div>
+La estructura que se muestra está diseñada de tal forma para que ninguno de los eslabones choque entre sí al momento de que giren para poder realizar los dibujos. Esto se puede ver en las siguientes dos figuras donde se muestran las longitudes de los eslabones y cómo es que, al rotar 180 grados, estos no chocarían entre sí debido a la estructura que se propuso.
+<div align="center">
+<img src="./resources/robotExtendido.png" alt="robotExtendido" width=50%>
+<img src="./resources/robotContraido.png" alt="robotContraido" width=50%>
+<p align="center"><em> Vista lateral del robot en su posición completamente extendida y completamente contraida. </em></p>
+</div>
+Otro aspecto importante en el que se podría trabajar es en la parte del TCP donde se colocaría el instrumento de dibujo del robot. Nuestra sugerencia es incluir algunos motores en esta sección para que el robot sea capaz de levantar un poco la punta cuando el TCP realice trayectorias sobre zonas donde no hay puntos que dibujar. De esta forma evitamos que el robot tenga que realizar un movimiento sobre el eje Z desde la base o del último eslabón para lograr el mismo objetivo. 
+
+Finalmente, al ser un robot planar de tres eslabones, se podrían definir diferentes dimensiones para sus eslabones por lo que otro punto en el que se podría trabajar es en se cambiar las dimensiones propuestas. De esta forma se presentaría otro diseño de robot si es que se necesitara implementarse en distintas aplicaciones ya que el caso específico de este proyecto es para lograr dibujar dentro de una hoja A4 pero el código del robot permite cambiar las longitudes de los eslabones y de esta manera se modifica el workspace el robot. 
+
+## Software
+La versión actual del proyecto realiza el dibujo mediante una nube de puntos los cuales son graficados empleando la función `scatter`. Esto se debe a que al procesar la imagen esta es convertida en una matriz binaria. Empleando la función `find` se extraen las coordenadas en X y Y de los elementos que contienen un 1 binario. Sin embargo, la función `find` realiza el mapeo de tales elementos revisando cada renglón de una columna en la matriz. Es por eso que el robot realiza el dibujo con un comportamiento similar a una impresora ya que va plasmando los puntos por columnas. 
+
+Por lo tanto, para una futura versión del proyecto se recomienda implementar una función que permita unir los puntos en trayectorias. Idealmente se espera que el dibujo se realice según los trazos obtenidos en el procesamiento de la imagen y que estos se dibujen de manera continua. 
+
+Otra sugerencia es revisar las zonas de indeterminación del robot. Específicamente en la función de `Animation_ik`, hay ocasiones en las que el eslabón 2 del robot actúa como si tuviera una longitud dinámica. Es decir, crece y decrece según la configuración articular que se presenta. Este error se rastreó hasta determinar que esto ocurre cuando los eslabones 2 y 3 se sobreponen, esto es cuando el grado de giro del eslabón 3 es de 180° con respecto al eslabón 2.
+
+El error está directamente relacionado con la cinemática inversa, no es un problema de programación, lo que ocurre es que la cinemática inversa falla para las coordenadas X2 y Y2 con ciertos ángulos los cuales se presentan en las zonas de indeterminación. Es por eso que el dibujo se realiza a partir del milímetro 60 en el eje X ya que si los puntos se encuentran demasiado cerca del origen (la base) es muy probable que ocurra el error mencionado. 
+
+Las zonas de indeterminación fueron reducidas drásticamente gracias al rediseño físico del robot en el cual los dos primeros eslabones tienen longitudes grandes con respecto al tercer eslabón. Sin embargo, esto no elimina por completo dichas zonas. Se pueden realizar múltiples pruebas con distintas longitudes de los eslabones indicando las nuevas longitudes en las variables `l1`, `l2` y `l3` de las funciones `Animation_ik` y `Animation_ik_TB`. 
+
+Por último, el diseño físico del robot permite tener ángulos de giro sin limitaciones, pero en caso de emplear un diseño diferente en el cual sea necesario establecer límites también será necesario programar tales límites. La versión actual del proyecto no tiene la capacidad de implementar límites ya que esto se debe aplicar desde la cinemática inversa para que esta no encuentre configuraciones articulares fuera de los límites. 
+
 
 # Autoría
 Este proyecto fue creado por el Equipo 1 de la materia de Robótica en el periodo Pimavera 2021. El equipo está conformado por:

@@ -63,6 +63,9 @@ function robotDibujante_OpeningFcn(hObject, eventdata, handles, varargin)
 % Choose default command line output for robotDibujante
 handles.output = hObject;
 
+% imaqreset
+% handles.cam = webcam(1)
+
 % Update handles structure
 guidata(hObject, handles);
 
@@ -205,12 +208,11 @@ function Browse_Callback(hObject, eventdata, handles)
 global photo
 global ready
 global ini
-global vid
 if(ini)
-    objects = imaqfind;
-    stop(objects);
+%     objects = imaqfind;
+%     stop(objects);
     ini = 0;
-    clear objects
+%     clear objects
 end
 [a b]=uigetfile({'*.jpeg';'*.jpg'});    
 photo=imread([b a]);
@@ -226,10 +228,8 @@ function Clear_Callback(hObject, eventdata, handles)
 global ready
 global ini
 if(ini)
-    objects = imaqfind;
-    stop(objects);
     ini = 0;
-    clear objects
+%     clear objects
 end
 ready = 0;
 cla(handles.axes1,'reset');
@@ -237,38 +237,42 @@ cla(handles.axes1,'reset');
 function VIDEO(hObject, eventdata, handles)
 global ini 
 global cap
-global vid
+global cam
 global ready
 global photo
 cap=0;
 ready = 0;
 if ini==1
-    objects = imaqfind;
-    delete(objects);
-    clear objects;
-    vid=videoinput('winvideo',1);%,'MJPG_1280x720');
-    triggerconfig(vid,'manual');
-    start(vid)
+%     objects = imaqfind;
+%     delete(objects);
+%     clear objects;
+    cam = webcam(1);
+%     vid=videoinput('winvideo',1);%,'MJPG_1280x720');
+%     triggerconfig(vid,'manual');
+%     start(vid)
     while 1
         axes(handles.axes1)
-        if isrunning(vid)
+%         if isrunning(vid)
+%             disp(isrunning(vid))
             if not(ini)
                 break;
             end
-            photo = getsnapshot(vid);
+            photo = snapshot(cam);
+%             photo = getsnapshot(vid);
             imshow(photo,'Parent',handles.axes1);
-        end
+%         end
         
     end
-    if (cap)  
-        objects = imaqfind;
-        stop(objects);
-        
-        delete(vid);
+%     if (cap)  
+        clear('cam')
+%         objects = imaqfind;
+%         stop(objects);
+%         disp('stop')
+%         disp(isrunning(vid))
+%         delete(vid);
         ready = 1;
         
-        clear vid
-        clear objects
-        clear stream
-    end 
+%         clear vid
+%         clear objects
+%     end 
 end 
