@@ -2,7 +2,7 @@
 Esta apliación que nos permite a partir de una imagen, ya sea por webcam o un archivo (.jpg, .jpeg), obtener las coordenadas cartesianas que le permitirán dibujar la imagen a un robot planar de 3 grados de libertad.
 
 # Motivación
-Este proyecto fue creado como un challenge para la evaluación final de la materia de Robótica (LMT4051-2). 
+Este proyecto fue creado como un challenge para la evaluación final de la materia de Robótica (LMT4051-2) en el periodo Primavera 2021. 
 
 # Requerimientos
 Para usar esta aplicación se necesitan los siguientes toolbox:
@@ -57,15 +57,10 @@ A continuación mostramos un ejemplo del resultado de una imagen en 3D.
 </div>
 
 Por otro lado, también es posible imprimir imágenes como logotipos o documentos escaneados, como se muestra a continuación.
-<div style="display: flex" align="center">
 <div align="center">
-<img src="./resources/UDLAP_imagen.png" alt="imagen_barco" width = 40%>
-<p align="center"><em> Introducción del logotipo a la aplicación. </em></p>
-</div>
-<div align="center">
-<img src="./resources/UDLAP_sigma.png" alt="UDLAP_sigma" width=40%>
-<p align="center"><em> Procesamiento del logotipo. </em></p>
-</div>
+<img src="./resources/UDLAP_imagen.png" alt="imagen_barco" width = 45%>
+<img src="./resources/UDLAP_sigma.png" alt="UDLAP_sigma" width=45%>
+<p align="center"><em> Carga y procesamiento del logotipo. </em></p>
 </div>
 <div align="center">
 <img src="./resources/UDLAP.png" alt="UDLAP" width = 75%>
@@ -100,12 +95,15 @@ El error está directamente relacionado con la cinemática inversa, no es un pro
 
 Las zonas de indeterminación fueron reducidas drásticamente gracias al rediseño físico del robot en el cual los dos primeros eslabones tienen longitudes grandes con respecto al tercer eslabón. Sin embargo, esto no elimina por completo dichas zonas. Se pueden realizar múltiples pruebas con distintas longitudes de los eslabones indicando las nuevas longitudes en las variables `l1`, `l2` y `l3` de las funciones `Animation_ik` y `Animation_ik_TB`. 
 
-Por último, el diseño físico del robot permite tener ángulos de giro sin limitaciones, pero en caso de emplear un diseño diferente en el cual sea necesario establecer límites también será necesario programar tales límites. La versión actual del proyecto no tiene la capacidad de implementar límites ya que esto se debe aplicar desde la cinemática inversa para que esta no encuentre configuraciones articulares fuera de los límites. 
+Por otro lado, el diseño físico del robot permite tener ángulos de giro sin limitaciones, pero en caso de emplear un diseño diferente en el cual sea necesario establecer límites también será necesario programar tales límites. La versión actual del proyecto no tiene la capacidad de implementar límites ya que esto se debe aplicar desde la cinemática inversa para que esta no encuentre configuraciones articulares fuera de los límites. 
 
+Finalmente, se detectaron retrasos en la captura de la imagen debido a la programación de la webcam. Estos retrasos se deben principalmente a que la forma en que se está activando y desactivando la cámara no toma en cuenta los desfases temporales que se producen al utilizar la función `snapshoot` para capturar la imagen. Si bien esto no afecta el funcionamiento general de la aplicación, puede dificultar el uso de la webcam.
+
+Además, en relación con la cámara, consideramos que podría mejorarse la calidad de la imagen capturada introduciendo a la interfaz la opción de permitirle al usuario seleccionar entre distintas cámaras conectadas a su dispositivo, o modificando el contraste y brillo de la imagen. Es importante tomar esto en cuenta ya que, dependiendo en la calidad de la cámara, la iluminación al momento de la captura y el ruido en la imagen, la cantidad de puntos detectados puede variar.
 
 # Autoría
-Este proyecto fue creado por el Equipo 1 de la materia de Robótica en el periodo Pimavera 2021. El equipo está conformado por:
-- María Fernanda López Salinas, Ingeniería Mecatrónica.
-- Zuriel Enrique González López, Ingeniería Mecatrónica.
-- Adrián Ramos Macías, Ingeniería Mecatrónica.
-- Ana María Ruiz Fernández, Ingeniería Mecatrónica.
+Este proyecto fue creado por el Equipo 1 para materia de Robótica en el periodo Pimavera 2021. El equipo está conformado por:
+- Zuriel Enrique González López (zuriel.gonzalezlz@udlap.mx), candidato a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
+- María Fernanda López Salinas (maria.lopezss@udlap.mx, github: [ferzsal](https://github.com/ferzsal)), candidata a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
+- Adrián Ramos Macías (adrian.ramosms@udlap.mx), candidato a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
+- Ana María Ruiz Fernández (ana.ruizfz@udlap.mx, github: [amrf7](https://github.com/amrf7)), candidata a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
