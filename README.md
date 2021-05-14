@@ -35,6 +35,8 @@ La interfaz generada en MATLAB se compone de los siguientes elementos:
 </div>
 
 # Funcionamiento
+Esta es una prueba del funcionamiento
+
 # Pruebas
 Pueden encontrarse videos del funcionamiento de esta aplicación para distintos casos en el siguiente [link](https://youtu.be/5BYJgvd3Z4k).
 
