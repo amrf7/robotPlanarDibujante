@@ -6,7 +6,7 @@ Este proyecto fue creado como un challenge para la evaluación final de la mater
 
 # Requerimientos
 Para usar esta aplicación se necesitan los siguientes toolbox:
--  Robotic's Toolbox de Peter Corke
+-  Robotic's Toolbox de Peter Corke (RVC 2nd edition: RTB10+MVTB4 (2017))
 - Image Acquisition Toolbox Support Package for OS Generic Video Interface
 - Image Acquisition Toolbox Supoort Package for DCAM Hardware
 - Image Processing Toolbox
@@ -35,7 +35,108 @@ La interfaz generada en MATLAB se compone de los siguientes elementos:
 </div>
 
 # Funcionamiento
-Esta es una prueba del funcionamiento
+Como se mencionó anteriormente, es necesaria la descarga de diversos toolbox para el correcto funcionamiento del programa. En este caso, el Toolbox de Robótica de Peter Corke puede instalarse de diversas maneras como se puede observar en el siguiente [link](https://petercorke.com/toolboxes/robotics-toolbox/). Es posible que dependiendo de la instalación hecha, sea necesario correr el archivo _startup_rvc.c_ como primer paso; mediante este archivo será posible utilizar funciones del toolbox que se incluyen en _robotDibujante.m_. 
+
+Una vez asegurados de que es posible hacer uso de las funciones del toolbox de Robótica y de haber descargado el repositorio, procedemos a abrir el archivo _robotDibujante.m_ en Matlab. Este archivo permitirá correr todo el programa y llamar a las funciones que se encuentran dentro de _Animation_ik_, _Animation_ik_, _edgeDetection_. 
+
+<div align="center">
+<img src="./resources/abrircodigo.jpg" alt="correr_archivo" width = 60%>
+<p align="center"><em> Apertura del archivo _robotDibujante.m_ </em></p>
+</div>
+
+Ya que se ha abierto el archivo, únicamente basta con correr el código _robotDibujante.m_
+
+<div align="center">
+<img src="./resources/correrarchivo.jpg" alt="correr_archivo" width = 60%>
+<p align="center"><em> Ejecución del programa _robotDibujante.m_ </em></p>
+</div>
+
+Al correr el código, aparecerá la interfaz gráfica del programa y podemos comenzar a hacer uso de los componentes mencionados anteriormente. 
+
+<div align="center">
+<img src="./resources/gui.png" alt="GUI" width = 60%>
+<p align="center"><em> Captura de pantalla de la interfaz </em></p>
+</div>
+
+El primer paso dentro de la interfaz es elegir el archivo a dibujar, este archivo puede ser elegido directamente desde un archivo en nuestra computadora o de igual manera, es posible realizar la toma de una captura desde la cámara de la computadora. 
+
+Si se desea tomar una fotografía desde la cámara, es necesario:
+
+- 1: Presionar en _Inicializar Cámara_
+- 2: Presionar en _Capturar Imagen_
+
+<div align="center">
+<img src="./resources/capturarimagen.png" alt="captura" width = 60%>
+<p align="center"><em> Captura de una fotografía desde la cámara </em></p>
+</div>
+
+Si se desea elegir un archivo existente de nuestra computadora, es necesario:
+- 1: Presionar en _Seleccionar Imagen_
+- 2: Una vez presionado, se abrirá una nueva pestaña para buscar y seleccionar el archivo deseado (este debe ser .jpg o .jpeg)
+
+Si hemos cometido un error en la selección del archivo o deseamos tomar otra fotografía, podemos hacer una limpieza de la imagen que se encuentra dentro de la interfaz con tan solo presionar el botón de _Limpiar_ y podemos volver a elegir la imagen nuevamente con los mismos pasos ya mencionados. 
+
+
+<div style="display: flex" align="center">
+<div align="center">
+<img src="./resources/seleccionararchivo.jpg" alt="busqueda" width = 70%>
+<p align="center"><em> Búsqueda del archivo a dibujar. </em></p>
+</div>
+<div align="center">
+<img src="./resources/archivoseleccionado.jpg" alt="archivoselecc" width=70%>
+<p align="center"><em> Archivo seleccionado y abierto dentro de la interfaz. </em></p>
+</div>
+</div>
+
+
+Una vez que ya tenemos la imagen a dibujar dentro de la interfaz, procedemos a aplicar el filtro de detección de bordes. Este filtro se aplica con el botón _Actualizar filtro de pantalla_ y su intensidad depende del slider denominado como _Sigma_. Cada que se modifique el valor del slider, es necesario volver a actualizar el filtro para poder observar los cambios de la imagen. Dependiendo del valor en el slider, se modificará la detección de los bordes como se observa a continuación. 
+
+<div style="display: flex" align="center">
+<div align="center">
+<img src="./resources/filtro1.jpg" alt="filtro1" width = 70%>
+<p align="center"><em> Ejemplo 1 de ajuste de filtro. </em></p>
+</div>
+<div align="center">
+<img src="./resources/filtro2.jpg" alt="filtro2" width=70%>
+<p align="center"><em> Ejemplo 2 de ajuste de filtro. </em></p>
+</div>
+</div>
+
+Ya que se haya elegido el valor final del filtro, es posible proceder a dibujar la imagen. La imagen se puede dibujar con una animación de un robot de 2 dimensiones simple o generado mediante el Toolbox de Peter Corke. Para comenzar el dibujo, es necesario:
+
+- 1: Presionar en _Aceptar cambios_
+- 2: Elegir _Animación_ik_ o _Animación_ik_TB_
+
+Una vez hechos estos pasos, se desplegará una nueva figura en donde se mostrará el proceso de dibujo de la imagen seleccionada. 
+
+<div align="center">
+<img src="./resources/procesodibujo.jpg" alt="captura" width = 60%>
+<p align="center"><em> Proceso de dibujo de la imagen sin toolbox </em></p>
+</div>
+
+Es importante mencionar que existe una notoria diferencia en el tiempo de dibujo entre la animación con toolbox y sin toolbox. Se recomienda elegir la animación sin toolbox para menor tiempo de dibujo, esto se debe a que el uso del toolbox requiere un alto consumo de recursos por parte de la computadora. 
+
+Una vez terminado el dibujo, es posible guardar el la figura final en diferentes formatos.
+
+
+<div style="display: flex" align="center">
+<div align="center">
+<img src="./resources/saveas.jpg" alt="saveas" width = 70%>
+<p align="center"><em>  Guardar dibujo finalizado </em></p>
+</div>
+<div align="center">
+<img src="./resources/guardardibujo.jpg" alt="filtro2" width=58%>
+<p align="center"><em> Elegir formato del dibujo a guardar. </em></p>
+</div>
+</div>
+
+<div align="center">
+<img src="./resources/dibujodoki.png" alt="saveas" width = 60%>
+<p align="center"><em> Dibujo finalizado en formato .png</em></p>
+</div>
+
+El proceso puede interrumpirse si se cierra la figura en donde se está dibujando la imagen. Igualmente, el proceso puede volver a comenzarse siguiendo los mismos pasos una vez finalizado. Si la imagen originalmente se dibuja con _Animación_ik_ y al finalizar el proceso, se desea dibujarla ahora con _Animación_ik_TB_, no es necesario volver a abrir la imagen en la interfaz si esta ya está abierta, únicamente es necesario volver a presionar _Aceptar cambios_ y elegir el nuevo tipo de animación. 
+
 
 # Pruebas
 Pueden encontrarse videos del funcionamiento de esta aplicación para distintos casos en el siguiente [link](https://youtu.be/5BYJgvd3Z4k).
@@ -107,3 +208,7 @@ Este proyecto fue creado por el Equipo 1 para materia de Robótica en el periodo
 - María Fernanda López Salinas (maria.lopezss@udlap.mx, github: [ferzsal](https://github.com/ferzsal)), candidata a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
 - Adrián Ramos Macías (adrian.ramosms@udlap.mx), candidato a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
 - Ana María Ruiz Fernández (ana.ruizfz@udlap.mx, github: [amrf7](https://github.com/amrf7)), candidata a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
+
+# Recursos Adicionales 
+
+En el siguiente [link](https://drive.google.com/drive/folders/1JFphu5fYnkcF-Y_q62HlObDaAQS4sMIE?usp=sharing) se puede encontrar el reporte realizado para la materia de Robótica, el cual está relacionado  al análisis de la cinemática directa e inversa del robot planar. Adicionalmente, como recomendación personal, se sugiere la revisión del siguiente [proyecto](https://la.mathworks.com/matlabcentral/fileexchange/67926-portrait-drawing-using-computer-vision-and-robot-manipulator) del autor Tohru Kikawada relacionado con la generación de un retrato a partir de la detección facial mediante una cámara web. 
