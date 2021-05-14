@@ -63,9 +63,6 @@ function robotDibujante_OpeningFcn(hObject, eventdata, handles, varargin)
 % Choose default command line output for robotDibujante
 handles.output = hObject;
 
-% imaqreset
-% handles.cam = webcam(1)
-
 % Update handles structure
 guidata(hObject, handles);
 
@@ -143,15 +140,14 @@ function applyfilter_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global photo
 global sigma
-global BW1
-%% crear img binaria
-    img = rgb2gray(photo);
-    img = imgaussfilt(img,sigma);
-    [BW, thcanny] = edge(img,'canny');
-    %% procesamiento de la imagen binaria
-    a = 5.5; % Modificación del threshold
-    BW1 = edge(img,'canny', thcanny * a);
-    imshow(BW1,'Parent',handles.axes1)
+%% create binary image
+img = rgb2gray(photo);
+img = imgaussfilt(img,sigma);
+[BW, thcanny] = edge(img,'canny');
+%% improve binary image
+a = 5.5; % threshold adjustement
+BW1 = edge(img,'canny', thcanny * a); % final binary image
+imshow(BW1,'Parent',handles.axes1)
 
 
 % --- Executes on slider movement.
@@ -209,14 +205,19 @@ global photo
 global ready
 global ini
 if(ini)
-%     objects = imaqfind;
-%     stop(objects);
+    % if the camera is on, turn it off
+    objects = imaqfind;
+    stop(objects);
     ini = 0;
-%     clear objects
+    clear objects
 end
-[a b]=uigetfile({'*.jpeg';'*.jpg'});    
-photo=imread([b a]);
-imshow(photo,'Parent',handles.axes1);
+
+% read the file
+[a b]=uigetfile({'*.jpeg';'*.jpg'}); % available formats so far, might add 
+                                     % some more. must ensure the images 
+                                     % are in RGB colorspace
+photo=imread([b a]); % store image in photos
+imshow(photo,'Parent',handles.axes1); % show the image on screen
 ready = 1;
 
 
@@ -229,7 +230,6 @@ global ready
 global ini
 if(ini)
     ini = 0;
-%     clear objects
 end
 ready = 0;
 cla(handles.axes1,'reset');
@@ -243,36 +243,32 @@ global photo
 cap=0;
 ready = 0;
 if ini==1
-%     objects = imaqfind;
-%     delete(objects);
-%     clear objects;
-    cam = webcam(1);
-%     vid=videoinput('winvideo',1);%,'MJPG_1280x720');
-%     triggerconfig(vid,'manual');
-%     start(vid)
+    objects = imaqfind; % detect if any camera objects are active
+    delete(objects); % delete camera objects
+    clear objects
+    
+    vid=videoinput('winvideo',1); % detect & configure default camera
+    triggerconfig(vid,'manual'); 
+    start(vid) % start camera
     while 1
         axes(handles.axes1)
-%         if isrunning(vid)
-%             disp(isrunning(vid))
+        if isrunning(vid)
             if not(ini)
                 break;
             end
-            photo = snapshot(cam);
-%             photo = getsnapshot(vid);
-            imshow(photo,'Parent',handles.axes1);
-%         end
+            photo = getsnapshot(vid); % capture camera image
+            imshow(photo,'Parent',handles.axes1); % show image on screen
+        end
         
     end
-%     if (cap)  
-        clear('cam')
-%         objects = imaqfind;
-%         stop(objects);
-%         disp('stop')
-%         disp(isrunning(vid))
-%         delete(vid);
+    if (cap)
+        % detect camera objects and delete them/turn them off
+        objects = imaqfind;
+        stop(objects);
+        delete(objects);
         ready = 1;
         
-%         clear vid
-%         clear objects
-%     end 
+        clear vid
+        clear objects
+    end 
 end 
