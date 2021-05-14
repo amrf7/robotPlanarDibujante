@@ -79,11 +79,11 @@ Si hemos cometido un error en la selección del archivo o deseamos tomar otra fo
 
 <div style="display: flex" align="center">
 <div align="center">
-<img src="./resources/seleccionararchivo.jpg" alt="busqueda" width = 98%>
+<img src="./resources/seleccionararchivo.jpg" alt="busqueda" width = 70%>
 <p align="center"><em> Búsqueda del archivo a dibujar. </em></p>
 </div>
 <div align="center">
-<img src="./resources/archivoseleccionado.jpg" alt="archivoselecc" width=98%>
+<img src="./resources/archivoseleccionado.jpg" alt="archivoselecc" width=70%>
 <p align="center"><em> Archivo seleccionado y abierto dentro de la interfaz. </em></p>
 </div>
 </div>
@@ -93,11 +93,11 @@ Una vez que ya tenemos la imagen a dibujar dentro de la interfaz, procedemos a a
 
 <div style="display: flex" align="center">
 <div align="center">
-<img src="./resources/filtro1.jpg" alt="filtro1" width = 98%>
+<img src="./resources/filtro1.jpg" alt="filtro1" width = 70%>
 <p align="center"><em> Ejemplo 1 de ajuste de filtro. </em></p>
 </div>
 <div align="center">
-<img src="./resources/filtro2.jpg" alt="filtro2" width=98%>
+<img src="./resources/filtro2.jpg" alt="filtro2" width=70%>
 <p align="center"><em> Ejemplo 2 de ajuste de filtro. </em></p>
 </div>
 </div>
@@ -121,11 +121,11 @@ Una vez terminado el dibujo, es posible guardar el la figura final en diferentes
 
 <div style="display: flex" align="center">
 <div align="center">
-<img src="./resources/saveas.jpg" alt="saveas" width = 98%>
+<img src="./resources/saveas.jpg" alt="saveas" width = 70%>
 <p align="center"><em>  Guardar dibujo finalizado </em></p>
 </div>
 <div align="center">
-<img src="./resources/guardardibujo.jpg" alt="filtro2" width=78%>
+<img src="./resources/guardardibujo.jpg" alt="filtro2" width=58%>
 <p align="center"><em> Elegir formato del dibujo a guardar. </em></p>
 </div>
 </div>
@@ -208,3 +208,7 @@ Este proyecto fue creado por el Equipo 1 para materia de Robótica en el periodo
 - María Fernanda López Salinas (maria.lopezss@udlap.mx, github: [ferzsal](https://github.com/ferzsal)), candidata a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
 - Adrián Ramos Macías (adrian.ramosms@udlap.mx), candidato a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
 - Ana María Ruiz Fernández (ana.ruizfz@udlap.mx, github: [amrf7](https://github.com/amrf7)), candidata a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
+
+# Recursos Adicionales 
+
+En el siguiente [link](https://drive.google.com/drive/folders/1JFphu5fYnkcF-Y_q62HlObDaAQS4sMIE?usp=sharing) se puede encontrar el reporte realizado para la materia de Robótica, el cual está relacionado  al análisis de la cinemática directa e inversa del robot planar. Adicionalmente, como recomendación personal, se sugiere la revisión del siguiente [proyecto](https://la.mathworks.com/matlabcentral/fileexchange/67926-portrait-drawing-using-computer-vision-and-robot-manipulator) del autor Tohru Kikawada relacionado con la generación de un retrato a partir de la detección facial mediante una cámara web. 
