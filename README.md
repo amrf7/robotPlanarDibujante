@@ -59,11 +59,11 @@ A continuación mostramos un ejemplo del resultado de una imagen en 3D.
 Por otro lado, también es posible imprimir imágenes como logotipos o documentos escaneados, como se muestra a continuación.
 <div style="display: flex" align="center">
 <div align="center">
-<img src="./resources/UDLAP_imagen.png" alt="imagen_barco" width = 50%>
+<img src="./resources/UDLAP_imagen.png" alt="imagen_barco" width = 40%>
 <p align="center"><em> Introducción del logotipo a la aplicación. </em></p>
 </div>
 <div align="center">
-<img src="./resources/UDLAP_sigma.png" alt="UDLAP_sigma" width=50%>
+<img src="./resources/UDLAP_sigma.png" alt="UDLAP_sigma" width=40%>
 <p align="center"><em> Procesamiento del logotipo. </em></p>
 </div>
 </div>
@@ -76,7 +76,7 @@ Por otro lado, también es posible imprimir imágenes como logotipos o documento
 ## Diseño Mecánico
 El diseño mecánico del robot propuesto se muestra en la figura a continuación, en donde se indican las posiciones de los motores, así como la implementación de ruedas locas. Estos elementos brindarán soporte a los eslabones y al mismo tiempo permitirán que se puedan mover de manera correcta al momento en que se gira cada uno de ellos. 
 <div align="center">
-<img src="./resources/diseñoMecanico.png" alt="Diseño del robot planar" width = 50%>
+<img src="./resources/diseñoMecanico.png" alt="Diseño del robot planar" width = 75%>
 <p align="center"><em> Propuesta de diseño para el robot planar simulado. </em></p>
 </div>
 La estructura que se muestra está diseñada de tal forma para que ninguno de los eslabones choque entre sí al momento de que giren para poder realizar los dibujos. Esto se puede ver en las siguientes dos figuras donde se muestran las longitudes de los eslabones y cómo es que, al rotar 180 grados, estos no chocarían entre sí debido a la estructura que se propuso.
