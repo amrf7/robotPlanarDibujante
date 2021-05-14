@@ -208,3 +208,7 @@ Este proyecto fue creado por el Equipo 1 para materia de Robótica en el periodo
 - María Fernanda López Salinas (maria.lopezss@udlap.mx, github: [ferzsal](https://github.com/ferzsal)), candidata a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
 - Adrián Ramos Macías (adrian.ramosms@udlap.mx), candidato a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
 - Ana María Ruiz Fernández (ana.ruizfz@udlap.mx, github: [amrf7](https://github.com/amrf7)), candidata a licenciatura en Ingeniería Mecatrónica (Graduación esperada 2022).
+
+# Recursos Adicionales 
+
+En el siguiente [link](https://drive.google.com/drive/folders/1JFphu5fYnkcF-Y_q62HlObDaAQS4sMIE?usp=sharing) se puede encontrar el reporte realizado para la materia de Robótica, el cual está relacionado  al análisis de la cinemática directa e inversa del robot planar. Adicionalmente, como recomendación personal, se sugiere la revisión del siguiente [proyecto](https://la.mathworks.com/matlabcentral/fileexchange/67926-portrait-drawing-using-computer-vision-and-robot-manipulator) del autor Tohru Kikawada relacionado con la generación de un retrato a partir de la detección facial mediante una cámara web. 
